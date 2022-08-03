@@ -1,23 +1,18 @@
 #!/usr/bin/python3
-""" Program that define a Student with filter """
+"""
+Module for pascal_triangle method.
+"""
 
 
-class Student:
-    """class Student that defines a student"""
-
-    def __init__(self, first_name, last_name, age):
-        """Constructor"""
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def to_json(self, attrs=None):
-        """retrieves a dictionary representation of a Student instance"""
-        dic = {}
-        if type(attrs) is not list:
-            return self.__dict__
-        else:
-            for i in attrs:
-                if i in self.__dict__:
-                    dic[i] = self.__dict__[i]
-            return dic
+def pascal_triangle(n):
+    """
+    returns a list of lists of integers
+        Args:
+            n (int): number of lists and digits
+        Returns: list of lists
+    """
+    rows = [[1 for j in range(i + 1)] for i in range(n)]
+    for n in range(n):
+        for i in range(n - 1):
+            rows[n][i + 1] = sum(rows[n - 1][i : i + 2])
+    return rows

@@ -1,21 +1,31 @@
 #!/usr/bin/python3
-""" Program that Load, add, save all arguments to a Python list,
-and then save them to a file """
-import sys
-import os
-
-save_to_json_file = __import__("7-save_to_json_file").save_to_json_file
-load_from_json_file = __import__("8-load_from_json_file").load_from_json_file
+"""
+    Module for class Student.
+"""
 
 
-if __name__ == "__main__":
-    data = "add_item.json"
+class Student:
+    """
+    A class students that defines a student by:
+    Attributes:
+        first_name (str): name of student.
+        last_name (str): name of student.
+        age (int): age of student.
+    Methods:
+        __init__ - initializes the Student instance.
+        to_json - retrieves dictionary repr of Student instance.
+    """
 
-    if os.path.isfile(data):
-        my_list = load_from_json_file(data)
-    else:
-        my_list = []
+    def __init__(self, first_name, last_name, age):
+        """
+        Initialises Student instance.
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-    for i in range(1, len(sys.argv)):
-        my_list.append(sys.argv[i])
-    save_to_json_file(my_list, data)
+    def to_json(self):
+        """
+        retrieves a dictionary representation of Student.
+        """
+        return self.__dict__

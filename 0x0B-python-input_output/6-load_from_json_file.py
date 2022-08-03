@@ -1,9 +1,17 @@
 #!/usr/bin/python3
-""" Program that returns an object from json string """
+"""
+Module for load_from_json_file method.
+"""
+
+
 import json
 
 
-def from_json_string(my_str):
-    """function that returns an object (Python data structure)
-    represented by a JSON string:"""
-    return json.loads(my_str)
+def load_from_json_file(filename):
+    """loads an object from JSON file.
+    Args:
+        filename (str): name of file.
+    """
+    with open(filename, "r") as j_file:
+        my_obj = json.load(j_file)
+        return my_obj

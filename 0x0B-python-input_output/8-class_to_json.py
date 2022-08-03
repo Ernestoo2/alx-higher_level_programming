@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-""" Program that Create object from a JSON file """
-import json
+"""
+Module for class_to_json method.
+"""
 
 
-def load_from_json_file(filename):
-    """function that creates an Object from a JSON file"""
-    with open(filename, "r") as f:
-        return json.load(f)
+def class_to_json(obj):
+    """
+    returns dictionary representation with simple data structure.
+    """
+    return obj.__dict__
