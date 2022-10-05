@@ -1,3 +1,5 @@
 #!/usr/bin/node
-'use strict';
-console.log('C is fun\nPython is cool\nJavascript is amazing');
+const myArray = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+console.log(myArray[0]);
+console.log(myArray[1]);
+console.log(myArray[2]);
